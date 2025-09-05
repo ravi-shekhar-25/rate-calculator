@@ -106,7 +106,7 @@ const MainPage = () => {
                     </label>
                     <input
                         name="toPinCode"
-                        type="text"
+                        type="number"
                         id="toPinCode"
                         value={formData.toPinCode}
                         onChange={handleChange}
@@ -116,7 +116,7 @@ const MainPage = () => {
                     />
                 </div>
 
-                <div className={"flex flex-row items-center gap-4"}>
+                <div className={"flex flex-row items-center gap-2.5"}>
                     <label className="text-black text-lg font-medium">
                         Mode:
                     </label>
@@ -157,7 +157,7 @@ const MainPage = () => {
                     </label>
                     <input
                         name="weight"
-                        type="text"
+                        type="number"
                         id="weight"
                         value={formData.weight}
                         onChange={handleChange}
@@ -174,7 +174,7 @@ const MainPage = () => {
                     </label>
                     <input
                         name="invoiceValue"
-                        type="text"
+                        type="number"
                         id="invoiceValue"
                         value={formData.invoiceValue}
                         onChange={handleChange}
