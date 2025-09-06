@@ -41,16 +41,19 @@ const MainPage = () => {
             setResult(response.data);
         } catch (error) {
             console.error("Error fetching rate:", error);
-            // setResult({ error: "Failed to fetch data" });
+            setResult({ error: "Failed to fetch data" });
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="p-5">
+        <div className="p-1 md:p-5">
+            <div className={"text-2xl mb-3 p-1 rounded-3xl bg-gray-200 font-bold text-center items-center"}>
+                <p> Rate Calculator</p>
+            </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <div className={"flex flex-row items-center gap-4"}>
+                <div className={"flex flex-row items-center gap-2.5"}>
                     <label
                         className="text-black text-lg font-medium"
                     >
@@ -66,7 +69,7 @@ const MainPage = () => {
                         disabled={true}
                     />
                 </div>
-                <div className={"flex flex-row items-center gap-4"}>
+                <div className={"flex flex-row items-center gap-2"}>
                     <label
                         className="text-black text-lg font-medium"
                     >
@@ -82,7 +85,7 @@ const MainPage = () => {
                         disabled={true}
                     />
                 </div>
-                <div className={"flex flex-row items-center gap-4"}>
+                <div className={"flex flex-row items-center gap-2"}>
                     <label
                         className="text-black text-lg font-medium"
                     >
@@ -98,7 +101,7 @@ const MainPage = () => {
                         disabled={true}
                     />
                 </div>
-                <div className={"flex flex-row items-center gap-4"}>
+                <div className={"flex flex-row items-center gap-2.5"}>
                     <label
                         className="text-black text-lg font-medium"
                     >
@@ -118,7 +121,7 @@ const MainPage = () => {
 
                 <div className={"flex flex-row items-center gap-2.5"}>
                     <label className="text-black text-lg font-medium">
-                        Mode:
+                        Select Mode:
                     </label>
                     <select
                         name="mode"
@@ -132,24 +135,25 @@ const MainPage = () => {
                         <option value="Surface">Surface</option>
                         <option value="Air">Air</option>
                     </select>
-
-                    <label
-                        className="text-black text-lg font-medium"
-                    >
-                        Pieces:
-                    </label>
-                    <input
-                        name="pieces"
-                        type="number"
-                        id="pieces"
-                        value={formData.pieces}
-                        onChange={handleChange}
-                        className="bg-gray-100 border border-[#33353F] placeholder-[#9CA2A9] text-gray-800 text-sm rounded-lg  p-2.5"
-                        placeholder="Pieces"
-                    />
                 </div>
 
-                <div className={"flex flex-row items-center gap-4"}>
+                {/*//todo: pieces is not required*/}
+                {/*<label*/}
+                {/*    className="text-black text-lg font-medium"*/}
+                {/*>*/}
+                {/*    Pieces:*/}
+                {/*</label>*/}
+                {/*<input*/}
+                {/*    name="pieces"*/}
+                {/*    type="number"*/}
+                {/*    id="pieces"*/}
+                {/*    value={formData.pieces}*/}
+                {/*    onChange={handleChange}*/}
+                {/*    className="bg-gray-100 border-[#33353F] placeholder-[#9CA2A9] text-gray-800 text-sm rounded-lg  p-2.5"*/}
+                {/*    placeholder="Pieces"*/}
+                {/*/>*/}
+
+                <div className={"flex flex-row items-center gap-2"}>
                     <label
                         className="text-black text-lg font-medium"
                     >
@@ -166,7 +170,7 @@ const MainPage = () => {
                         required={true}
                     />
                 </div>
-                <div className={"flex flex-row items-center gap-4"}>
+                <div className={"flex flex-row items-center gap-2"}>
                     <label
                         className="text-black text-lg font-medium"
                     >
@@ -190,7 +194,7 @@ const MainPage = () => {
                 </button>
             </form>
             {result && (
-                <div className="mt-6 p-4 bg-gray-100 rounded-lg border">
+                <div className="mt-6 mb-8 p-4 bg-gray-100 rounded-lg border">
                     <h2 className="text-lg font-bold">Rate Calculation Result</h2>
                     <pre className="mt-2 bg-white p-3 rounded-lg overflow-auto">
                     {result.Item2?.ToPin && (
@@ -235,7 +239,7 @@ const MainPage = () => {
                             </div>
                         )}
                         {result.Item1?.GRTotal !== undefined && (
-                            <div className="text-xl p-2 rounded-md bg-gray-200 text-black font-semibold">
+                            <div className="text-xl mt-1.5 p-2 rounded-md bg-gray-200 text-black font-bold">
                                 Total Cost: Rs. {((result.Item1.GRTotal * 1.18).toFixed(2))}
                             </div>
                         )}
